@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-success" role="alert">
+<h1>Categoty一覧</h1>
+</div>
+{% endblock header %}
+
+{% block content%}
+{% for category in object_list %}
+<li><a href="{% url 'blog_base:category_post' category.slug %}">{{ category.name }}: {{category.num_posts}}</a></li>
+{% empty %}
+<li>Categoryがありません</li>
+{% endfor %}
+{% endblock content %}

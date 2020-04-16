@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class='container'>
+<h4>Tag一覧</h4>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+<ul>
+  {% for tag in object_list %}
+  <li>{{ tag.name }} ({{ tag.num_posts }})</li>
+  {% empty %}
+  <li>Tagがまだありません</li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock content %}

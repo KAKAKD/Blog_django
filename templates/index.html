@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' href= "{% static 'css/blog.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class='container'>
+ <div class='row'>
+  <main class = 'col-8'>
+   {% block title %}<h1>投稿一覧</h1>{% endblock title %}
+   {% if user.is_authenticated or post.is_public %}
+    {% include 'base/main_menu.html' %}
+    {% include 'base/pagination.html' %}
+   {% endif %}
+  </main>
+  <aside class='col-4'>
+    {% include 'base/sidevar.html' %}
+  </aside>
+ </div>
+</div>
+{% endblock content %}

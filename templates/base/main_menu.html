@@ -1,0 +1,12 @@
+
+{% for post in object_list %}
+<div class="card" >
+  <div class="card-body">
+    {% if post.image %}
+    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+    {% endif %}
+    <h5 class="card-title">{{ post.title }}</h5>
+    <a href="{% url 'blog_base:detail' post.pk %}" class="btn btn-primary">detail</a>
+  </div>
+</div>
+{% endfor %}

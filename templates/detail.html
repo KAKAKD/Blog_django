@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="row">
+<div class="col-8">
+<div class="alert alert-info" role="alert" style='margin-top: 20px'>
+<h1>{{ object.title }}</h1>
+<p>published_time :{{ object.published_at }}</p>
+<p>Category : {{ object.category.name }}</p>
+{% for item in object.tags.all %}
+<p>Tag :{{ item.name }}</p>
+{% endfor %}
+<img src="{{ object.image.url }}"  width=450 />
+</div>
+</div>
+
+
+<div class="col-4">
+
+    <a class="btn btn-primary my-3" href="{% url 'blog_base:comment_form' post.pk %}">コメントを投稿</a>
+    {% include "base/comment.html" %}
+
+</div>
+</div>
+
+{% endblock content %}
